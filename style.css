@@ -1,0 +1,518 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@300;700&family=Solway:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  background-image: radial-gradient(#eaeaf0 2px, transparent 0);
+  background-size: 36px 36px;
+  background-position: -19px -19px;
+/*   background: #000; */
+}
+
+.full {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Solway", serif;
+}
+
+.one {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 56px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#headline {
+  color: gray;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Gaegu", sans-serif;
+}
+
+#draggable1,
+#draggable2 {
+  position: absolute;
+  z-index: 9;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+  box-shadow: 0 20px 10px -14px #4031a047;
+  transition: transform 0.5s;
+}
+
+#draggable1 {
+  top: 65%;
+  left: 50%;
+  background: #b8ffc6;
+  font-family: "Gaegu", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  transform: rotate(10deg);
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+#draggable2 {
+  top: 20%;
+  left: 40%;
+  background: #faeecc;
+  transform: rotate(-10deg);
+  font-size: 56px;
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(10deg);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(20deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    transform: rotate(-10deg);
+  }
+}
+
+#draggableheader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+}
+
+#draggable1:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+#draggable2:hover {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+/* Nav bar css starts */
+
+.nav-bar {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+}
+
+.sqr {
+  font-weight: 100;
+  font-size: 16px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.home {
+  border-bottom: 3px solid #ffa3a3;
+}
+
+.about {
+  border-bottom: 3px solid #9efcb1;
+}
+
+.work {
+  border-bottom: 3px solid #94e6ff;
+}
+
+.contact {
+  border-bottom: 3px solid #cca3ff;
+}
+
+/* Nav bar css ends */
+
+/* About page css starts */
+
+.about-full {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Solway", serif;
+}
+
+.about-one {
+  height: 100%;
+  /* background: pink; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-grid-container {
+  width: 70%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  grid-template-rows: 1fr 3fr 6fr;
+}
+
+.grid-items {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.name-about {
+  grid-row: auto / span 1;
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.photo-about {
+  grid-row: span 1;
+  grid-column: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pfp {
+  height: 100%;
+  clip-path: circle();
+  filter: grayscale();
+  z-index: 10;
+}
+
+.sticky-about {
+  grid-column: 1;
+}
+
+.intro-about {
+  grid-column: 2;
+  grid-row: 2/-1;
+  font-size: 1.2rem;
+  text-align: left;
+  overflow-y: scroll;
+  font-family: "Gaegu", sans-serif;
+}
+
+.intro-about-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.intro-about-current {
+  padding: 10px 0 10px 0;
+  /* font-weight: 600; */
+}
+
+.intro-about-first {
+  padding: 10px 0 10px 0;
+}
+
+.intro-about-second {
+  padding: 10px 0 10px 0;
+}
+
+.intro-about-hobby {
+  padding: 10px 0 10px 0;
+}
+
+.intro-about-connect {
+  padding: 10px 0 10px 0;
+}
+
+.intro-about-connect a {
+  text-decoration: underline;
+}
+
+.lable-blue {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(60%, transparent),
+    color-stop(60%, rgba(0, 131, 255, 0.2)),
+    to(rgba(0, 131, 255, 0.2))
+  );
+}
+
+.lable-yellow {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(60%, transparent),
+    color-stop(60%, rgba(255, 177, 66, 0.4)),
+    to(rgba(255, 177, 66, 0.4))
+  );
+}
+
+.lable-orange {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(60%, transparent),
+    color-stop(60%, rgba(255, 121, 63, 0.4)),
+    to(rgba(255, 121, 63, 0.4))
+  );
+}
+
+.lable-green {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(60%, transparent),
+    color-stop(60%, rgba(63, 255, 98, 0.4)),
+    to(rgba(63, 255, 98, 0.4))
+  );
+}
+
+.lable-purple {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(60%, transparent),
+    color-stop(60%, rgb(160 53 214 / 35%)),
+    to(rgb(143 40 208 / 44%))
+  );
+}
+
+#draggable3,
+#draggable4 {
+  position: absolute;
+  z-index: 9;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;
+  box-shadow: 0 20px 10px -14px #4031a047;
+}
+
+#draggable3 {
+  /* top: 50%; */
+  left: 18%;
+  background: #b8ffc6;
+  font-family: "Gaegu", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  transform: rotate(10deg);
+}
+
+#draggable4 {
+  top: 60%;
+  left: 24%;
+  background: #ffdfb8;
+  font-family: "Gaegu", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  animation: 1s ease-out 0s 1 slideInFromRight;
+  transform: rotate(-10deg);
+}
+
+@media screen and (max-width: 870px) {
+  .about-grid-container {
+    width: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+
+  .name-about {
+    display: none;
+  }
+
+  .photo-about {
+    grid-row: 3;
+  }
+
+  .intro-about {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+  #draggable3 {
+    display: none;
+    /* top: 40%;
+        left: 20%;
+        transform: none; */
+  }
+
+  #draggable4 {
+    display: none;
+    /* top: 40%;
+        left: 60%;
+        transform: none; */
+  }
+}
+
+/* About page css ends */
+
+/* Work page css start */
+.full-work {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Solway', serif;
+  overflow-y: scroll;
+}
+
+
+.one-work {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.work-grid-container {
+    width: 70%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.name-project {
+    grid-row: auto / span 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.work-title {
+    grid-row: span 2;
+    grid-column: 1;
+    font-size: 1.5rem;
+    text-align: left;
+    /* display: flex;
+    justify-content: start;
+    align-items: center; */
+}
+
+.work-description {
+    grid-row: span 2;
+    grid-column: 2;
+    font-size: 1.2rem;
+    text-align: left;
+    font-family: 'Gaegu', sans-serif;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    color: gray;
+    
+}
+
+.wavy{
+    text-decoration: wavy;
+}
+
+.first-work, .second-work, .third-work, .fourth-work {
+    color: rgb(50, 50, 50);
+}
+
+
+@media screen and (max-width: 870px) {
+    .work-grid-container {
+        width: 100%;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+      overflow-y: scroll;
+    }
+
+    .name-project {
+        grid-column: span 2;
+    }
+
+    .work-title {
+        grid-column: span 2;
+        padding-bottom: 0;
+      padding-top: 0;
+        
+    }
+
+    .work-description {
+        grid-column: span 2;
+        /* fit all text */
+        padding-top: 0;
+        font-size: small;
+    }
+
+}
+
+
+/* Work page css end */
